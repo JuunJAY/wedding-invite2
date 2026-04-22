@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f0f10" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>모바일 청첩장 | 정대준 ♥ 서유미</title>
+
+  <!-- ✅ OG (카톡 공유 카드) -->
+  <meta property="og:title" content="정대준 ♥ 서유미 결혼합니다" />
+  <meta property="og:description" content="2026년 5월 16일(토) 12:30 | 레스케이프호텔 이벤트룸 (8층)" />
+  <meta property="og:image" content="https://lustrous-hamster-0284d1.netlify.app/og.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lustrous-hamster-0284d1.netlify.app" />
+
+  <!-- ✅ 폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Pretendard:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f0f10;
+      --card:#151518;
+      --text:#f6f6f7;
+      --muted:#b7b7be;
+      --line:rgba(255,255,255,.08);
+      --accent:#d8caa8;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 22px;
+      --max: 520px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      margin:0; padding:0;
+      background:radial-gradient(1200px 800px at 50% -10%, rgba(216,202,168,.18), transparent 55%), var(--bg);
+      color:var(--text);
+      font-family: Pretendard, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+    a{color:inherit; text-decoration:none}
+    button{font-family:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 16px 60px}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), transparent 40%), var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .section{padding:18px 18px}
+    .sep{height:1px; background:var(--line); margin:0 18px}
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted); font-size:13px;
+    }
+    .title{
+      font-family:"Nanum Myeongjo", serif;
+      font-weight:700; letter-spacing:.02em;
+      font-size:26px; line-height:1.25; margin:12px 0 8px;
+    }
+    .subtitle{color:var(--muted); font-size:14px; line-height:1.6; margin:0}
+
+    .hero{position:relative; aspect-ratio: 4 / 5; background:#111;}
+    .hero img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position: 80% center;
+      display:block;
+      filter:saturate(1.02) contrast(1.03);
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.62) 78%, rgba(0,0,0,.85));
+      pointer-events:none;
+    }
+    .heroText{position:absolute; left:18px; right:18px; bottom:16px; z-index:2;}
+    .heroText .names{
+      font-family:"Nanum Myeongjo", serif;
+      font-size:28px; font-weight:700;
+      margin:0 0 6px;
+    }
+    .heroText .meta{
+      display:flex; flex-wrap:wrap; gap:10px;
+      color:rgba(255,255,255,.88); font-size:14px;
+    }
+
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .mini{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background:rgba(255,255,255,.02);
+    }
+    .mini h4{margin:0 0 6px; font-size:13px; color:var(--muted); font-weight:600}
+    .mini p{margin:0; font-size:15px; line-height:1.5}
+    .accent{color:var(--accent)}
+
+    .btnRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .btn{
+      flex:1; min-width: 140px;
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      font-size:14px;
+      cursor:pointer;
+      transition:.15s transform ease, .15s background ease;
+      user-select:none;
+    }
+    .btn:active{transform:scale(.99)}
+    .btn.primary{
+      background:rgba(216,202,168,.14);
+      border-color:rgba(216,202,168,.35);
+    }
+
+    /* ✅ 내비 버튼 3개 (스크샷 느낌) */
+    .navRow{display:flex; gap:10px; margin-top:12px}
+    .navBtn{
+      flex:1;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      padding:12px 10px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      transition:.15s transform ease, .15s background ease;
+    }
+    .navBtn:active{transform:scale(.99)}
+    .navIcon{
+      width:34px; height:34px;
+      border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.18);
+    }
+    .navLabel{font-size:13px; color:rgba(255,255,255,.92)}
+    .navHint{font-size:11px; color:var(--muted)}
+    .navIcon.naver{background:rgba(3,199,90,.18); border-color:rgba(3,199,90,.25)}
+    .navIcon.tmap{background:rgba(255,80,0,.16); border-color:rgba(255,80,0,.22)}
+    .navIcon.kakao{background:rgba(255,215,0,.14); border-color:rgba(255,215,0,.22)}
+
+    /* ✅ 갤러리 */
+    .gallery{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;}
+    .thumb{
+      aspect-ratio: 1/1; border-radius:16px; overflow:hidden;
+      border:1px solid var(--line); background:#111; cursor:pointer;
+    }
+    .thumb img{width:100%; height:100%; object-fit:cover; display:block}
+
+    /* ✅ 라이트박스 */
+    .lightbox{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.85);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:999;
+      padding:18px;
+    }
+    .lightbox.open{display:flex}
+    .lightbox img{
+      max-width:min(520px, 100%);
+      max-height: 82vh;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.15);
+      box-shadow: var(--shadow);
+    }
+    .lbClose{
+      position:fixed; top:14px; right:14px;
+      width:44px; height:44px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-size:22px;
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer;
+    }
+
+    /* ✅ 토스트 */
+    .toast{
+      position:fixed; left:50%; bottom:20px; transform:translateX(-50%);
+      background:rgba(20,20,22,.92);
+      border:1px solid rgba(255,255,255,.14);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:13px;
+      display:none;
+      z-index:1000;
+    }
+    .toast.show{display:block; animation: pop .18s ease}
+    @keyframes pop{
+      from{transform:translateX(-50%) translateY(6px); opacity:.7}
+      to{transform:translateX(-50%) translateY(0); opacity:1}
+    }
+
+    /* ✅ 지도 카드 + 네이버 배지 */
+    .mapCard{
+      position:relative;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#111;
+    }
+    .mapCard img{width:100%; display:block}
+    .badge{
+      position:absolute;
+      left:10px; bottom:10px;
+      display:inline-flex; align-items:center; gap:7px;
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color:rgba(255,255,255,.92);
+      background:rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .dotN{
+      width:10px; height:10px; border-radius:3px;
+      background:#03C75A;
+      box-shadow: 0 0 0 3px rgba(3,199,90,.18);
+    }
+
+    .footer{text-align:center; color:var(--muted); font-size:12px; padding-top: 18px;}
+
+    /* ===== 은은한 스크롤 등장 애니메이션 ===== */
+    .reveal{
+      opacity:0;
+      transform: translateY(10px);
+      transition: opacity .7s ease, transform .7s ease;
+      will-change: opacity, transform;
+    }
+    .reveal.in{
+      opacity:1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce){
+      .reveal{transition:none; opacity:1; transform:none;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+
+      <!-- ✅ HERO -->
+      <div class="hero">
+        <!-- hero.jpg 파일 필요 -->
+        <img src="hero.jpg" alt="웨딩 사진" />
+        <div class="heroText">
+          <div class="pill reveal">Wedding Invitation · <span class="accent">Save the Date</span></div>
+          <p class="names reveal">정대준 <span class="accent">♥</span> 서유미</p>
+          <div class="meta reveal">
+            <span>2026. 05. 16 (Sat) 12:30</span>
+            <span>·</span>
+            <span>레스케이프호텔 이벤트룸</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ✅ 인사말 -->
+      <div class="section">
+        <h2 class="title reveal">초대합니다</h2>
+        <p class="subtitle reveal">
+          소중한 분들을 모시고<br/>
+          저희 두 사람이 평생을 함께할 약속을 하려 합니다.<br/>
+          오셔서 축복해 주세요.
+        </p>
+      </div>
+
+      <div class="sep"></div>
+
+      <!-- ✅ 기본 정보 -->
+      <div class="section">
+        <div class="grid2">
+          <div class="mini reveal">
+            <h4>일시</h4>
+            <p><span class="accent">2026년 5월 16일</span> (토)<br/>오후 12시 30분</p>
+          </div>
+          <div class="mini reveal">
+            <h4>장소</h4>
+            <p>
+              레스케이프호텔 이벤트룸 (8층)<br/>
+              <span class="subtitle">서울 중구 퇴계로 67</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="btnRow reveal">
+          <a class="btn primary" id="btnCalendar" href="#" role="button">📅 캘린더에 저장</a>
+          <a class="btn" href="tel:010-2654-2441" role="button">📞 신랑 전화</a>
+          <a class="btn" href="tel:010-7927-3179" role="button">📞 신부 전화</a>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+
+      <!-- ✅ LOCATION (map.jpg 카드 + 네이버 배지 + 3개 내비 버튼) -->
+      <div class="section">
+        <div class="pill reveal">LOCATION</div>
+        <h2 class="title reveal">오시는 길</h2>
+
+        <div class="mini reveal" style="text-align:center;">
+          <div style="font-family:'Nanum Myeongjo',serif; font-weight:700; font-size:18px; margin-bottom:8px;">
+            레스케이프호텔 이벤트룸
+          </div>
+          <div class="subtitle" style="margin-bottom:10px;">서울 중구 퇴계로 67</div>
+
+          <!-- 지도 이미지: map.jpg 필요 -->
+          <a class="mapCard" id="mapOpen"
+             href="https://map.naver.com/v5/search/%EB%A0%88%EC%8A%A4%EC%BC%80%EC%9D%B4%ED%94%84%ED%98%B8%ED%85%94%20%ED%87%B4%EA%B3%84%EB%A1%9C%2067"
+             target="_blank" rel="noreferrer" aria-label="네이버지도 열기">
+            <img src="map.jpg" alt="지도 이미지" />
+            <div class="badge">
+              <span class="dotN"></span>
+              NAVER Map
+            </div>
+          </a>
+
+          <!-- 스샷 느낌 3개 버튼 + 앱 우선 딥링크 -->
+          <div class="navRow reveal" style="margin-top:12px;">
+            <a class="navBtn" id="btnNaver" href="#" role="button" aria-label="네이버 지도">
+              <div class="navIcon naver">N</div>
+              <div class="navLabel">네이버 지도</div>
+              <div class="navHint">앱 우선</div>
+            </a>
+
+            <a class="navBtn" id="btnTmap" href="#" role="button" aria-label="티맵">
+              <div class="navIcon tmap">T</div>
+              <div class="navLabel">티맵</div>
+              <div class="navHint">앱 우선</div>
+            </a>
+
+            <a class="navBtn" id="btnKakaoNavi" href="#" role="button" aria-label="카카오내비">
+              <div class="navIcon kakao">K</div>
+              <div class="navLabel">카카오내비</div>
+              <div class="navHint">앱 우선</div>
+            </a>
+          </div>
+
+          <div class="subtitle reveal" style="margin-top:10px;">
+            원하시는 앱을 선택하시면 길안내가 시작됩니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+
+      <!-- ✅ 갤러리 (현재 g1.jpg 1장 테스트 기준. 필요하면 더 추가) -->
+      <div class="section">
+        <h2 class="title reveal">갤러리</h2>
+        <p class="subtitle reveal">사진을 누르면 크게 볼 수 있어요.</p>
+
+        <div class="gallery reveal" id="gallery">
+          <div class="thumb"><img src="g1.jpg" alt="photo1"></div>
+          <div class="thumb"><img src="g2.jpg" alt="photo2"></div>
+	  <div class="thumb"><img src="g3.jpg" alt="photo2"></div>
+	  <div class="thumb"><img src="g4.jpg" alt="photo2"></div>
+	  <div class="thumb"><img src="g5.jpg" alt="photo2"></div>
+	  <div class="thumb"><img src="g6.jpg" alt="photo2"></div>
+	  <div class="thumb"><img src="g7.jpg" alt="photo2"></div>
+	  <div class="thumb"><img src="g8.jpg" alt="photo2"></div>
+	  <div class="thumb"><img src="g9.jpg" alt="photo2"></div>
+         </div>
+      </div>
+
+      <div class="sep"></div>
+
+      <!-- ✅ 연락처 -->
+      <div class="section">
+        <h2 class="title reveal">연락처</h2>
+        <div class="grid2">
+          <div class="mini reveal">
+            <h4>신랑</h4>
+            <p>정대준</p>
+            <div class="btnRow">
+              <a class="btn primary" href="tel:010-2654-2441">📞 전화</a>
+              <a class="btn" href="sms:010-2654-2441">💬 문자</a>
+            </div>
+          </div>
+          <div class="mini reveal">
+            <h4>신부</h4>
+            <p>서유미</p>
+            <div class="btnRow">
+              <a class="btn primary" href="tel:010-7927-3179">📞 전화</a>
+              <a class="btn" href="sms:010-7927-3179">💬 문자</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+
+      <!-- ✅ 마음 전하실 곳 (신랑만) -->
+      <div class="section">
+        <h2 class="title reveal">마음 전하실 곳</h2>
+        <p class="subtitle reveal">버튼을 누르면 계좌번호가 복사돼요.</p>
+
+        <div class="mini reveal">
+          <div style="display:flex; justify-content:space-between; gap:12px; padding:12px 0;">
+            <div style="color:var(--muted); font-size:13px; min-width:92px;">신랑</div>
+            <div style="font-size:15px; text-align:right; line-height:1.5;">
+              <div>국민은행 95115-244160</div>
+              <div class="subtitle" style="margin-top:4px;">예금주 정대준</div>
+              <button class="btn" style="margin-top:10px; width:100%;" data-copy="국민은행 95115244160 (예금주 정대준)">📋 계좌 복사</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mini reveal">
+          <div style="display:flex; justify-content:space-between; gap:12px; padding:12px 0;">
+            <div style="color:var(--muted); font-size:13px; min-width:92px;">신부</div>
+            <div style="font-size:15px; text-align:right; line-height:1.5;">
+              <div>신한은행 110-411-730505</div>
+              <div class="subtitle" style="margin-top:4px;">예금주 서유미</div>
+              <button class="btn" style="margin-top:10px; width:100%;" data-copy="신한은행 110-411-730505 (예금주 서유미)">📋 계좌 복사</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+
+      <!-- ✅ RSVP (일단 숨김: 링크 없으니) -->
+      <div class="section">
+        <h2 class="title reveal">공유</h2>
+        <p class="subtitle reveal">링크를 공유하거나, 캘린더에 저장할 수 있어요.</p>
+
+        <div class="btnRow reveal">
+          <button class="btn" id="btnShare" type="button">🔗 링크 공유</button>
+          <a class="btn primary" href="https://lustrous-hamster-0284d1.netlify.app" target="_blank" rel="noreferrer">🌐 웹에서 열기</a>
+        </div>
+
+        <div class="footer">© 2026 · With love</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ✅ 라이트박스 -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lbClose" id="lbClose" aria-label="닫기">×</button>
+    <img id="lbImg" alt="확대 이미지" />
+  </div>
+
+  <div class="toast" id="toast">복사했어요 ✅</div>
+
+  <script>
+    // =========================
+    // 0) 작은 유틸
+    // =========================
+    const toast = document.getElementById('toast');
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1400);
+    }
+
+    // =========================
+    // 1) 갤러리 라이트박스
+    // =========================
+    const gallery = document.getElementById('gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+
+    gallery?.addEventListener('click', (e) => {
+      const img = e.target?.closest('img');
+      if (!img) return;
+      lbImg.src = img.src;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lbImg.src = '';
+      document.body.style.overflow = '';
+    }
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // =========================
+    // 2) 계좌 복사
+    // =========================
+    document.querySelectorAll('[data-copy]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        try{
+          await navigator.clipboard.writeText(btn.dataset.copy);
+          showToast('복사했어요 ✅');
+        }catch{
+          showToast('복사가 막혔어요 😵');
+        }
+      });
+    });
+
+    // =========================
+    // 3) 링크 공유
+    // =========================
+    const btnShare = document.getElementById('btnShare');
+    btnShare?.addEventListener('click', async () => {
+      const shareData = {
+        title: document.title,
+        text: '모바일 청첩장',
+        url: location.href
+      };
+      try{
+        if (navigator.share) await navigator.share(shareData);
+        else {
+          await navigator.clipboard.writeText(location.href);
+          showToast('링크 복사 완료 🔗');
+        }
+      }catch{}
+    });
+
+    // =========================
+    // 4) 캘린더 저장 (ICS)
+    // =========================
+    const btnCalendar = document.getElementById('btnCalendar');
+    btnCalendar?.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const event = {
+        title: "정대준 ♥ 서유미 결혼식",
+        location: "레스케이프호텔 이벤트룸, 서울 중구 퇴계로 67",
+        description: "모바일 청첩장: https://lustrous-hamster-0284d1.netlify.app",
+        start: "2026-05-16T12:30", // KST 로컬 기준
+        end:   "2026-05-16T14:00"
+      };
+
+      const ics = buildICS(event);
+      downloadFile("wedding.ics", ics, "text/calendar;charset=utf-8");
+      showToast("캘린더 파일 저장 ✅");
+    });
+
+    function pad(n){ return String(n).padStart(2,'0'); }
+
+    function toUTCFromLocal(dtLocal){
+      const d = new Date(dtLocal);
+      const y = d.getUTCFullYear();
+      const m = pad(d.getUTCMonth()+1);
+      const da = pad(d.getUTCDate());
+      const h = pad(d.getUTCHours());
+      const mi = pad(d.getUTCMinutes());
+      return `${y}${m}${da}T${h}${mi}00Z`;
+    }
+
+    function dtstampUTC(){
+      const d = new Date();
+      const y = d.getUTCFullYear();
+      const m = pad(d.getUTCMonth()+1);
+      const da = pad(d.getUTCDate());
+      const h = pad(d.getUTCHours());
+      const mi = pad(d.getUTCMinutes());
+      const s = pad(d.getUTCSeconds());
+      return `${y}${m}${da}T${h}${mi}${s}Z`;
+    }
+
+    function escapeICS(str){
+      return String(str || "")
+        .replace(/\\/g, "\\\\")
+        .replace(/\n/g, "\\n")
+        .replace(/,/g, "\\,")
+        .replace(/;/g, "\\;");
+    }
+
+    function buildICS(ev){
+      const uid = "wedding-" + Math.random().toString(16).slice(2) + "@mobile";
+      const dtstart = toUTCFromLocal(ev.start);
+      const dtend   = toUTCFromLocal(ev.end);
+
+      return [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Mobile Invitation//KR//EN",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+        "BEGIN:VEVENT",
+        `UID:${uid}`,
+        `DTSTAMP:${dtstampUTC()}`,
+        `DTSTART:${dtstart}`,
+        `DTEND:${dtend}`,
+        `SUMMARY:${escapeICS(ev.title)}`,
+        `LOCATION:${escapeICS(ev.location)}`,
+        `DESCRIPTION:${escapeICS(ev.description)}`,
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+    }
+
+    function downloadFile(filename, content, type){
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    // =========================
+    // 5) 내비 3개 버튼: 앱 우선 (실패 시 웹)
+    // =========================
+    const PLACE_NAME = "레스케이프호텔 이벤트룸";
+    const ADDRESS = "서울 중구 퇴계로 67";
+    const NAVER_SEARCH_WEB = "https://map.naver.com/v5/search/" + encodeURIComponent("레스케이프호텔 퇴계로 67");
+    const TMAP_WEB = "https://www.tmap.co.kr";
+    const KAKAO_NAVI_WEB = "https://map.kakao.com/link/search/" + encodeURIComponent("레스케이프호텔 퇴계로 67");
+
+    // 앱 딥링크는 환경/설치 여부에 따라 제한이 있어 "시도 → 실패 시 웹" 방식으로 처리
+    function openAppFirst(appUrl, fallbackUrl){
+      const now = Date.now();
+      const timeout = setTimeout(() => {
+        // 앱이 열렸다면 페이지가 백그라운드로 가면서 타이머가 늦게 동작하는 경우가 많음
+        // 1200ms 내에 변화 없으면 웹으로 폴백
+        if (Date.now() - now < 1600) window.location.href = fallbackUrl;
+      }, 1200);
+
+      // 앱 열기 시도
+      window.location.href = appUrl;
+
+      // 혹시나 바로 이동이 막혀도 timeout이 fallback 처리
+      return () => clearTimeout(timeout);
+    }
+
+    document.getElementById('btnNaver')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      // 네이버지도 앱: 검색 딥링크 (안 열리면 웹 검색)
+      const app = "nmap://search?query=" + encodeURIComponent("레스케이프호텔 퇴계로 67");
+      openAppFirst(app, NAVER_SEARCH_WEB);
+    });
+
+    document.getElementById('btnTmap')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      // 티맵 딥링크: 목적지 검색(환경에 따라 동작 차이가 있어 실패 시 웹)
+      const app = "tmap://search?name=" + encodeURIComponent("레스케이프호텔");
+      openAppFirst(app, TMAP_WEB);
+    });
+
+    document.getElementById('btnKakaoNavi')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      // 카카오내비 딥링크(목적지 검색). 일부 환경에서 제한 → 실패 시 카카오맵 검색 웹
+      const app = "kakaonavi://search?query=" + encodeURIComponent("레스케이프호텔 퇴계로 67");
+      openAppFirst(app, KAKAO_NAVI_WEB);
+    });
+
+    // =========================
+    // 6) 은은한 스크롤 등장 애니메이션
+    // =========================
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('in');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
